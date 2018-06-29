@@ -1,0 +1,11 @@
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/bin/Debug/netcoreapp2.1/CSharpAlgo.deps.json
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/bin/Debug/netcoreapp2.1/CSharpAlgo.runtimeconfig.json
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/bin/Debug/netcoreapp2.1/CSharpAlgo.runtimeconfig.dev.json
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/bin/Debug/netcoreapp2.1/CSharpAlgo.dll
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/bin/Debug/netcoreapp2.1/CSharpAlgo.pdb
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.csprojAssemblyReference.cache
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.csproj.CoreCompileInputs.cache
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.AssemblyInfoInputs.cache
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.AssemblyInfo.cs
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.dll
+/Users/rose/Desktop/DojoAssignments/CSharpAlgo/obj/Debug/netcoreapp2.1/CSharpAlgo.pdb
