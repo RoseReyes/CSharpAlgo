@@ -6,7 +6,7 @@ namespace CSharpAlgo
 {
     class Program
     {
-        public static void MergeTwoArray(int [] arr1, int [] arr2){
+        public static int[] MergeTwoArray(int [] arr1, int [] arr2){
 
             int[] NewArray = new int[arr1.Length + arr2.Length];
             int a = 0, b = 0, i = 0;    
@@ -31,6 +31,12 @@ namespace CSharpAlgo
                     NewArray[i++] = arr2[x];
                 }
             }
+
+            //Print the results
+            for( int x =0; x < NewArray.Length; x++){
+                System.Console.WriteLine(NewArray[x]);
+            }
+            return NewArray;
         }
 
         public static string MaxChar(string Str){
@@ -38,11 +44,9 @@ namespace CSharpAlgo
             var MaxChar = Str[0];
 
             for(int x = 0; x < Str.Length; x++){
-                
                 int currCount = 1;
 
                 for(var y = x + 1; y < Str.Length; y++){
-
                     if (Str[x] != Str[y]){
                         break;
                     }
@@ -72,21 +76,21 @@ namespace CSharpAlgo
                 }
                 x++;
             }
+            //Print the results
             for(int z = 0; z < arr.Length; z++){
                 System.Console.WriteLine(arr[z]);
             }
             return arr;
         }
-
         static void Main(string[] args)
         {
             int [] arr1 = {1,5,7,12,18,32};
             int [] arr2= {2,4,9,16,27,76,98};
             int [] arr = {4,-3,2,-5,5,-1,3};
-            NPSwap(arr);
-            MergeTwoArray(arr1, arr2);
-            String Str = "aaaabbbbbbbbbbbccd";
-            MaxChar(Str);
+           // NPSwap(arr);
+             MergeTwoArray(arr1, arr2);
+            // String Str = "aaaabbbbbbbbbbbccd";
+            // MaxChar(Str);
         }
     }
 }
