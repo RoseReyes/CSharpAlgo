@@ -1,11 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace CSharpAlgo
 {
     class Program
     {
+        public class ListNode{
+            public int val;
+            public ListNode next;
+        }
+        public ListNode MergeTwoList(ListNode list1, ListNode list2) {
+            ListNode newNode = new ListNode();
+            ListNode runner = newNode;
+            
+            while (list1 != null && list2 != null) {
+                if(list1.val <= list2.val){
+                runner.next = list1;
+                list1 = list1.next;
+                }
+                else {
+                runner.next = list2;
+                list2 = list2.next;
+                }
+                runner = runner.next;
+            }
+            if(list1 != null){
+                runner.next = list1;
+            }
+            else {
+                runner.next = list2;
+            }
+            return newNode.next;
+        }
+
         public static int[] MergeTwoArray(int [] arr1, int [] arr2){
 
             int[] NewArray = new int[arr1.Length + arr2.Length];
@@ -52,11 +81,13 @@ namespace CSharpAlgo
                     }
                     currCount++;
                 }
+
                 if(currCount > count){
                     count = currCount;
                     MaxChar = Str[x];
                 }
             }
+            
             Console.WriteLine("Maximum Character: {0}", MaxChar);
             return MaxChar.ToString();
         }
@@ -82,16 +113,29 @@ namespace CSharpAlgo
             }
             return arr;
         }
+
+        public static void ReverseSentence(string Str){
+            StringBuilder sb = new StringBuilder();  
+            string[] Split = Str.Split(' ');  
+            for (int i = Split.Length - 1; i >= 0; i--)  
+            {  
+                sb.Append(Split[i]);  
+                sb.Append(" ");  
+            }  
+            Console.WriteLine(sb);  
+        }
         static void Main(string[] args)
         {
             int [] arr1 = {1,5,7,12,18,32};
             int [] arr2= {2,4,9,16,27,76,98};
             int [] arr = {4,-3,2,-5,5,-1,3};
-           // NPSwap(arr);
-             MergeTwoArray(arr1, arr2);
+            string Str = "Rose Reyes";
+            ReverseSentence(Str); 
+            // NPSwap(arr);
+            //MergeTwoArray(arr1, arr2);
             // String Str = "aaaabbbbbbbbbbbccd";
             // MaxChar(Str);
-        }
+        } 
     }
 }
 
