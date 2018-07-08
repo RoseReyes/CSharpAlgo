@@ -1,39 +1,41 @@
-﻿using System;
+﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 
 namespace CSharpAlgo
 {
     class Program
     {
-        public class ListNode{
-            public int val;
-            public ListNode next;
-        }
-        public ListNode MergeTwoList(ListNode list1, ListNode list2) {
-            ListNode newNode = new ListNode();
-            ListNode runner = newNode;
+        // public class ListNode{
+        //     public int val;
+        //     public ListNode next;
+        // }
+        // public ListNode MergeTwoList(ListNode list1, ListNode list2) {
+        //     ListNode newNode = new ListNode();
+        //     ListNode runner = newNode;
             
-            while (list1 != null && list2 != null) {
-                if(list1.val <= list2.val){
-                runner.next = list1;
-                list1 = list1.next;
-                }
-                else {
-                runner.next = list2;
-                list2 = list2.next;
-                }
-                runner = runner.next;
-            }
-            if(list1 != null){
-                runner.next = list1;
-            }
-            else {
-                runner.next = list2;
-            }
-            return newNode.next;
-        }
+        //     while (list1 != null && list2 != null) {
+        //         if(list1.val <= list2.val){
+        //         runner.next = list1;
+        //         list1 = list1.next;
+        //         }
+        //         else {
+        //         runner.next = list2;
+        //         list2 = list2.next;
+        //         }
+        //         runner = runner.next;
+        //     }
+        //     if(list1 != null){
+        //         runner.next = list1;
+        //     }
+        //     else {
+        //         runner.next = list2;
+        //     }
+        //     return newNode.next;
+        // }
 
         public static int[] MergeTwoArray(int [] arr1, int [] arr2){
 
@@ -98,7 +100,7 @@ namespace CSharpAlgo
             while(x < arr.Length){
                 y = x + 1;
                 while (y < arr.Length){
-                    if(arr[y] < 0){
+                    if(arr[y] > 0){
                         temp = arr[y];
                         arr[y] = arr[y - 1];
                         arr[y - 1] = temp;
@@ -124,17 +126,80 @@ namespace CSharpAlgo
             }  
             Console.WriteLine(sb);  
         }
+
+
+        static string ToRoman(int input)
+        {
+            string[] roman = {"I","V","X","L","C","D","M"};
+            int[] number = { 1, 5, 10, 50, 100, 500, 1000 };
+            List<int> digits = new List<int>();
+            StringBuilder output = new StringBuilder();
+            int y = roman.Length-1;
+
+            for(int x = number.Length - 1; x > -1; x--){
+                digits.Add(input / number[x]);
+                input = input % number[x];
+            }
+
+            for(int z = 0; z < digits.Count; z++){
+                if(digits[z]!=0 && digits[z] == 4){
+                    output.Append(String.Concat(Enumerable.Repeat(roman[y], 1)));
+                    string result = String.Concat(Enumerable.Repeat(roman[y+1], 1));
+                    output.Append(result);
+                }
+                else {
+                    output.Append(String.Concat(Enumerable.Repeat(roman[y], digits[z])));
+                    System.Console.WriteLine(output);
+                }
+                y--;
+            }
+            return output.ToString();
+        }
+
+        static int[] EaseArray(int[] Arr){
+            for(int x = 0; x < Arr.Length - 1; x++){
+                if(Arr[x] > 0 && Arr[x + 1] == Arr[x]){
+                    Arr[x] *= 2;
+                    Arr[x + 1] = 0;
+                }
+            }
+            //Swap all non-zero numbers to the left
+            int NonZeroCount = 0;
+            for(int y = 0; y < Arr.Length; y++)
+            {
+                if(Arr[y] > 0)
+                {
+                    Arr[NonZeroCount] = Arr[y];
+                    NonZeroCount++;
+                }
+            }
+            //Change the tail part of the array to 0's
+            for(int z = NonZeroCount; z < Arr.Length; z++)
+            {
+                Arr[z] = 0;
+            }
+
+
+            for(int w = 0; w < Arr.Length - 1; w++){
+                System.Console.WriteLine(Arr[w]);
+            }
+            return Arr;
+        }
+        
         static void Main(string[] args)
         {
             int [] arr1 = {1,5,7,12,18,32};
             int [] arr2= {2,4,9,16,27,76,98};
-            int [] arr = {4,-3,2,-5,5,-1,3};
-            string Str = "Rose Reyes";
-            ReverseSentence(Str); 
-            // NPSwap(arr);
+            int [] arr = {4,0,2,0,12,0,0,0,8};
+            int[] Arr = {2, 2, 0, 4, 0, 8};
+            EaseArray(Arr);
+            //string Str = "Rose Reyes";
+            //ReverseSentence(Str); 
+            //NPSwap(arr);
             //MergeTwoArray(arr1, arr2);
             // String Str = "aaaabbbbbbbbbbbccd";
             // MaxChar(Str);
+            //ToRoman(20);
         } 
     }
 }
