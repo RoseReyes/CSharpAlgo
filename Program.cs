@@ -9,33 +9,33 @@ namespace CSharpAlgo
 {
     class Program
     {
-        // public class ListNode{
-        //     public int val;
-        //     public ListNode next;
-        // }
-        // public ListNode MergeTwoList(ListNode list1, ListNode list2) {
-        //     ListNode newNode = new ListNode();
-        //     ListNode runner = newNode;
+        public class ListNode{
+            public int val;
+            public ListNode next;
+        }
+        public ListNode MergeTwoList(ListNode list1, ListNode list2) {
+            ListNode newNode = new ListNode();
+            ListNode runner = newNode;
             
-        //     while (list1 != null && list2 != null) {
-        //         if(list1.val <= list2.val){
-        //         runner.next = list1;
-        //         list1 = list1.next;
-        //         }
-        //         else {
-        //         runner.next = list2;
-        //         list2 = list2.next;
-        //         }
-        //         runner = runner.next;
-        //     }
-        //     if(list1 != null){
-        //         runner.next = list1;
-        //     }
-        //     else {
-        //         runner.next = list2;
-        //     }
-        //     return newNode.next;
-        // }
+            while (list1 != null && list2 != null) {
+                if(list1.val <= list2.val){
+                runner.next = list1;
+                list1 = list1.next;
+                }
+                else {
+                runner.next = list2;
+                list2 = list2.next;
+                }
+                runner = runner.next;
+            }
+            if(list1 != null){
+                runner.next = list1;
+            }
+            else {
+                runner.next = list2;
+            }
+            return newNode.next;
+        }
 
         public static int[] MergeTwoArray(int [] arr1, int [] arr2){
 
@@ -185,21 +185,21 @@ namespace CSharpAlgo
             }
             return Arr;
         }
-        
+    
         static void Main(string[] args)
         {
             int [] arr1 = {1,5,7,12,18,32};
             int [] arr2= {2,4,9,16,27,76,98};
             int [] arr = {4,0,2,0,12,0,0,0,8};
-            int[] Arr = {2, 2, 0, 4, 0, 8};
+            int[] Arr = {2,4,5,0,0,5,4,8,6,0,6,8};
             EaseArray(Arr);
-            //string Str = "Rose Reyes";
-            //ReverseSentence(Str); 
-            //NPSwap(arr);
-            //MergeTwoArray(arr1, arr2);
-            // String Str = "aaaabbbbbbbbbbbccd";
-            // MaxChar(Str);
-            //ToRoman(20);
+            string Str = "Rose Reyes";
+            ReverseSentence(Str); 
+            NPSwap(arr);
+            MergeTwoArray(arr1, arr2);
+            String Str = "aaaabbbbbbbbbbbccd";
+            MaxChar(Str);
+            ToRoman(20);
         } 
     }
 }
