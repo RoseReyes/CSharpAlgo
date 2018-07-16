@@ -178,26 +178,99 @@ namespace CSharpAlgo
             {
                 Arr[z] = 0;
             }
-
-
             for(int w = 0; w < Arr.Length - 1; w++){
                 System.Console.WriteLine(Arr[w]);
             }
             return Arr;
         }
-    
+
+        public List<String> sortedNumAlphabet(int num){
+
+            List<String> sorted = new List<String>();
+            int breakPoint = 0;
+            
+            for(int i = 1; i <= num; i++){
+                sorted.Add(i.ToString());
+                for(int j = 0; j <=9; j++){
+                    sorted.Add(i.ToString() + j.ToString());
+                    if(i.ToString() + j.ToString() == num.ToString()){
+                        breakPoint = j;
+                        break;
+                    }
+                }
+            }
+            for(int i = breakPoint; i <= 9; i++){
+                sorted.Add(i.ToString());
+            }
+            return sorted;
+        }
+
+        static Boolean JumpGame(int[] arr){
+            Boolean IdxResult = false;
+            for(int x = 0; x < arr.Length - 1; x++){
+                int LandingSpot = arr[x] + x;
+
+                if(LandingSpot < arr.Length - 1){
+                    if(arr[LandingSpot] == 0){
+                        IdxResult = false;
+                        LandingSpot = 0;
+                    }
+                    else {
+                        IdxResult = true;
+                        LandingSpot = 0;
+                    }
+                }   
+            }
+            return IdxResult;
+        }
+
+        static int[] ActiveInactiveState(int[] state, int days, int n){
+            int[] temp = new int[n];
+
+            for(int x = 0; x < n; x++) {
+                temp[x] = state[x];
+            }
+
+            while(days-- > 0) {
+
+                temp[0] = 0 ^ state[1];
+                temp[n -1] = 0 ^ state[n - 2];
+
+                for(int y = 1; y <= n - 2; y++)
+                    temp[y] = state[y-1] ^ state[y+1];
+
+                for(int z = 0; z < n; z++)
+                    state[z] = temp[z];
+            }
+
+            for(int a = 0; a < state.Length; a++){
+                System.Console.WriteLine(state[a]);
+            }
+            return state;
+        }
+         
+
+        
+
         static void Main(string[] args)
         {
             int [] arr1 = {1,5,7,12,18,32};
             int [] arr2= {2,4,9,16,27,76,98};
-            int [] arr = {4,0,2,0,12,0,0,0,8};
+            int [] arr = {2,3,5};
+            int num = 8;
             int[] Arr = {2,4,5,0,0,5,4,8,6,0,6,8};
+            int[] state = {0,1,1,1,0,1,1,0};
+            int days = 4;
+            int n = state.Length;
+            ActiveInactiveState(state, days, n);
             EaseArray(Arr);
+            Boolean IdxStatus = JumpGame(arr);
+            Console.Write("The result is {0}", IdxStatus);
             string Str = "Rose Reyes";
             ReverseSentence(Str); 
             NPSwap(arr);
             MergeTwoArray(arr1, arr2);
-            String Str = "aaaabbbbbbbbbbbccd";
+            //String Str = "aaaabbbbbbbbbbbccd";
             MaxChar(Str);
             ToRoman(20);
         } 
